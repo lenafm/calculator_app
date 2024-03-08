@@ -6,7 +6,7 @@ class Circle:
     def __init__ (self, radius):
         self.radius = radius
 
-    def circle_calculation(radius:float) -> float:
+    def circle_calculation(self, operation:str) -> float:
         """""
         Calculates perimeter/area of circle with given radius.
         
@@ -18,9 +18,12 @@ class Circle:
         """""
         
         if operation == 'perimeter':
-            result = float(2 * pi *radius) 
+            result = float(2 * pi * self.radius) 
             
         elif operation == 'area':
-            result == float(pi * radius ** 2)
+            result = float(pi * self.radius ** 2)
        
+        else:
+            raise ValueError("Invalid operation. Please specify 'perimeter' or 'area'.")
+               
         return result
