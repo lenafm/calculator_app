@@ -38,3 +38,6 @@ def calculate():
             return render_template('calculator.html', printed_result="You cannot divide by zero")
 
     return render_template('calculator.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
