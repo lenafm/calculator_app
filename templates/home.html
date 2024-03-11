@@ -1,5 +1,13 @@
 {% extends 'layout.html' %}
 {% block content %}
     <h1>Welcome!</h1>
-    <p>Use the navigation bar, to find the calculator you need.</p>
+    <p>Use the navigation bar to:
+        <li>Find the calculator you need.</li>
+        <img src="{{ url_for('static', filename='calculator.png') }}" alt="Calculator" style="width:110px;height:110px;">
+        <li>Do circle calculation</li>
+        <img src="{{ url_for('static', filename='circle.png') }}" alt="Calculator" style="width:110px;height:110px; border-radius: 100%;">
+
+    </p>
+
+
 {% endblock %}
