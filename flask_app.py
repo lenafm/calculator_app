@@ -62,6 +62,9 @@ def calculateCircle():
         else:
             return render_template('Circle.html', resultArea="Invalid operation", resultPerimeter=resultPerimeter)
 
+        print(f"Radius: {radius}")
+        print(f"Area: {resultArea}")
+        print(f"Perimeter: {resultPerimeter}")
     return render_template('Circle.html', resultArea=resultArea, resultPerimeter=resultPerimeter)
 
 

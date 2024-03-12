@@ -9,11 +9,13 @@
 
    <br>
 
-   {% if resultArea %}
+{% if resultArea is not none %}
     <p>Area: {{ resultArea }}</p>
-   {% endif %}
-   {% if resultPerimeter %}
+{% endif %}
+{% if resultPerimeter is not none %}
     <p>Perimeter: {{ resultPerimeter }}</p>
-   {% endif %}
+{% endif %}
+
+
 
 {% endblock %}
