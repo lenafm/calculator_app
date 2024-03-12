@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<h1>Circle Calculator</h1>
+    <form method="post">
+        <input type="text" name="radius" placeholder="Radius of the circle" required="required" />
+        <button type="submit">Calculate</button>
+    </form>
+
+   <br>
+
+   <div class='center'>
+    {{ msg }}
+   </div>
+   <div class='center'>
+    Radius: {{ radius }}
+   </div>
+   <br>
+   <div class='center'>
+    Area: {{ area }}
+   </div>
+   <br>
+   <div class='center'>
+    Perimeter: {{ perimeter }}
+   </div>
+   
+
+{% endblock %}
