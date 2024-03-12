@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 
 from helper import perform_calculation, convert_to_float
 
+from circle import Circle
+
 app = Flask(__name__)  # create the instance of the flask class
 
 
@@ -10,6 +12,24 @@ app = Flask(__name__)  # create the instance of the flask class
 def home():
     return render_template('home.html')
 
+@app.route('/circle', methods=['GET', 'POST'])
+def circle():
+    if request.method == 'POST':
+        radius = request.form['radius']
+
+        try:
+            radius = convert_to_float(radius)
+            if radius <= 0:
+                return render_template('circle.html', printed_result = "Must be a positive Number.")
+
+            circle = Circle(radius=radius)
+            area = circle.area()
+            perimeter = circle.perimeter()
+            return render_template('circle.html', printed_result = f'The area of you circle is {str(area)} and the perimeter is {str(perimeter)}')
+        except ValueError:
+            return render_template('circle.html', printed_result = "Invalid input!")
+
+    return render_template('circle.html')
 
 @app.route('/calculate', methods=['GET', 'POST'])  # associating the GET and POST method with this route
 def calculate():
