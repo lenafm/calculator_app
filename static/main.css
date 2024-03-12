@@ -1,16 +1,19 @@
 /* Global Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    margin: 0;
-    padding: 0;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding-top: 20px; /* Add some padding at the top */
+      background-color: #f4f4f4;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+      width: 100%;
+      max-width: 320px; /* Set a smaller max-width for a more centered look */
+      margin: 0 auto; /* This will center your form container */
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Header Styles */
@@ -64,10 +67,10 @@ h1 a:hover {
 
 /* Calculator Styles */
 h1 {
-    text-align: center;
-    margin-top: 0;
-    font-size: 36px;
-    color: #343a40; /* Dark neutral color for heading */
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px; /* Spacing below the title */
 }
 
 form {
@@ -78,22 +81,18 @@ form {
 input[type="text"],
 select,
 button {
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-button {
-    background-color: #343a40; /* Dark neutral color for button */
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
 }
 
 button:hover {
-    background-color: #23272b; /* Slightly darker color on hover */
+      background-color: #45a049;
 }
+
