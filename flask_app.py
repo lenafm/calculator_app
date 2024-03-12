@@ -2,8 +2,9 @@ from flask import Flask, render_template, request
 
 from helper import perform_calculation, convert_to_float
 
-app = Flask(__name__)  # create the instance of the flask class
+from circle import Circle
 
+app = Flask(__name__)  # create the instance of the flask class
 
 @app.route('/')
 @app.route('/home')
@@ -20,6 +21,7 @@ def calculate():
         operation = str(request.form['operation'])
 
         # make sure the input is one of the allowed inputs (not absolutely necessary in the drop-down case)
+
         if operation not in ['add', 'subtract', 'divide', 'multiply']:
             return render_template('calculator.html',
                                    printed_result='Operation must be one of "add", "subtract", "divide", or "multiply".')
@@ -38,3 +40,43 @@ def calculate():
             return render_template('calculator.html', printed_result="You cannot divide by zero")
 
     return render_template('calculator.html')
+
+
+@app.route('/circle', methods=['GET', 'POST'])  # associating the GET and POST method with this route
+def circle_calculations():
+    if request.method == 'POST':
+
+        radius = request.form['radius']
+        operation = request.form['operation']
+
+        if operation not in ['perimeter', 'area']:
+            return render_template('circle.html',
+                                   printed_result='Operation must be either "perimeter" or "area".')
+
+        try:
+            radius = float(radius)
+            if radius <= 0:
+                raise ValueError('Invalid input. Radius must be a numeric value greater than 0.')
+        except ValueError:
+            return render_template('circle.html',
+                                   printed_result = 'Invalid input. Radius must be a numeric value greater than 0.')
+
+        circle = Circle(radius)
+
+        if operation == 'perimeter':
+            printed_result = circle.get_perimeter()
+        else:
+            printed_result = circle.get_area()
+
+        if printed_result <= 0:
+            return render_template('circle.html',
+                                   printed_result='Invalid input. Radius must be a numeric value greater than 0.')
+
+            # Render template with calculated perimeter and area
+        return render_template('circle.html', printed_result = str(printed_result))
+
+    return render_template('circle.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
