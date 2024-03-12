@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Circle Calculator</h1>
+    <form method="post">
+        <input type="text" name="radius" placeholder="Enter the radius" required="required" />
+        <!-- Add radio buttons for operation selection -->
+        <div>
+            <input type="radio" id="area" name="operation" value="area" checked>
+            <label for="area">Area</label>
+        </div>
+        <div>
+            <input type="radio" id="perimeter" name="operation" value="perimeter">
+            <label for="perimeter">Perimeter</label>
+        </div>
+        <button type="submit">Calculate</button>
+    </form>
+
+    <br>
+
+    <!-- Display result -->
+    {% if error %}
+        <p>Error: {{ error }}</p>
+    {% else %}
+        {% if result %}
+            <p>{{ result_message }}: {{ result }}</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
