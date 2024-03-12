@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 
 from helper import perform_calculation, convert_to_float
+from test_circle import test_circle
 
 app = Flask(__name__)  # create the instance of the flask class
 
@@ -38,3 +39,23 @@ def calculate():
             return render_template('calculator.html', printed_result="You cannot divide by zero")
 
     return render_template('calculator.html')
+
+@app.route('/circle', methods=['GET', 'POST'])  # associating the GET and POST method with this route
+def circle():
+    if request.method == 'POST':
+
+        radius = request.form['radius']
+        operation = str(request.form['operation'])
+
+        try:
+            radius = convert_to_float(value = radius)
+        except ValueError:
+            return render_template('circle.html', printed_result="Cannot perform operation with this input")
+
+        try:
+            result = test_circle(radius=radius, operation=operation)
+            return render_template('circle.html', printed_result=str(result))
+        except Exception as e:
+            return render_template('circle.html', printed_result=f"An error occurred: {str(e)}")
+
+    return render_template('circle.html')
