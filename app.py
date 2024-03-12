@@ -49,11 +49,11 @@ def calculate_circle():
         try:
             radius = float(radius)
         except:
-            return render_template('circle.html', msg = f'The radius must be a number, not {type(radius)}.',
-                                   radius = '', area='', perimeter='')
+            return render_template('circle.html', radius = '', area='', perimeter='',
+                                   msg = f'The radius must be a number, not {type(radius)}.')
         if radius <= 0:
-            return render_template('circle.html', msg = f'The radius of the circle must be greater than zero. {radius} is less than zero.',
-                                   radius = '', area='', perimeter='')
+            return render_template('circle.html', radius = '', area='', perimeter='',
+                                   msg = f'The radius of the circle must be greater than zero. {radius} is less than zero.')
         circle = Circle(radius)
         return render_template('circle.html',
                                msg = '',
