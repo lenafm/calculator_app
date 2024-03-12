@@ -1,0 +1,25 @@
+<!-- perimeter_calculator.html -->
+
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h1>Perimeter and Area Calculator</h1>
+
+  <form method="post" action="{{ url_for('calculate_perimeter_area') }}">
+    <label for="radius">Enter the radius:</label>
+    <input type="text" name="radius" required>
+    <button type="submit">Calculate</button>
+  </form>
+
+  {% if perimeter_result is not none or area_result is not none %}
+    <div class="result-container">
+      <h3>Results:</h3>
+      {% if perimeter_result is not none %}
+        <p><strong>Perimeter:</strong> {{ perimeter_result }} units</p>
+      {% endif %}
+      {% if area_result is not none %}
+        <p><strong>Area:</strong> {{ area_result }} square units</p>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endblock %}

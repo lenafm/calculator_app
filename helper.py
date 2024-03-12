@@ -1,4 +1,4 @@
-# create helper functions for calculations
+
 
 
 def perform_calculation(value1: float, value2: float, operation: str) -> float:
@@ -45,3 +45,6 @@ def convert_to_float(value: str) -> float:
     float_value = float(value)
 
     return float_value
+
+
+# helper.py
