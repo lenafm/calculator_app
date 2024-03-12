@@ -1,7 +1,7 @@
 ## create helper functions for circle calculations
 
-# import Circle class from circle.py
-from circle import Circle
+# import circle class from circle.py
+from circle import circle_class
 
 def circle_calc(radius: float, operation: str) -> float:
     """
@@ -15,8 +15,8 @@ def circle_calc(radius: float, operation: str) -> float:
         float: The result of the operation.
     """
 
-    # create Circle object with given radius
-    my_circle = Circle(radius)
+    # create object of circle class with given radius
+    my_circle = circle_class(radius)
 
     # check operation and call the appropriate method
     if operation == 'area':

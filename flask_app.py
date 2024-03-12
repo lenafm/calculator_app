@@ -52,18 +52,24 @@ def circle():
             return render_template('circle.html',
                                    printed_result='Operation must be either "Area" or "Perimeter".')
         
-        # run functions
+        # convert to float
         try:
             radius = convert_to_float(value=radius)
         except ValueError:
             return render_template('circle.html', printed_result="Cannot perform operation with this input.")
+        
 
+        # make sure the radius is positive
+        if radius < 0:
+            return render_template('circle.html',
+                                   printed_result='Radius cannot be negative.')
+        
+        # run circle function
         try:
             result = circle_calc(radius=radius, operation=operation)
             return render_template('circle.html', printed_result=str(result))
         except Exception:
             return render_template('circle.html', printed_result=str("An error occurred."))
-
 
     return render_template('circle.html')
 
