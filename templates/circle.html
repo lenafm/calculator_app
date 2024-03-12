@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<h1>Circle</h1>
+    <form method="post">
+        <input type="text" name="radius" placeholder="Enter the radius" required="required" />
+
+        <button type="submit">Calculate</button>
+    </form>
+
+   <br>
+
+  {% if printed_result_area is defined %}
+        <p>Area: {{ printed_result_area }}</p>
+    {% endif %}
+    {% if printed_result_per is defined %}
+        <p>Perimeter: {{ printed_result_per }}</p>
+    {% endif %}
+{% endblock %}
+
