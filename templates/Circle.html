@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Circle Calculator</h1>
+    <form method="post">
+        <input type="text" name="value1" placeholder="Enter the Radius of Circle" required="required" />
+        <button type="submit" name="operation" value="area">Calculate Area</button>
+        <button type="submit" name="operation" value="perimeter">Calculate Perimeter</button>
+    </form>
+
+   <br>
+
+   {% if resultArea %}
+    <p>Area: {{ resultArea }}</p>
+   {% endif %}
+   {% if resultPerimeter %}
+    <p>Perimeter: {{ resultPerimeter }}</p>
+   {% endif %}
+
+{% endblock %}
