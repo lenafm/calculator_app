@@ -41,10 +41,18 @@ def calculate():
 
 @app.route('/circle', methods=['GET', 'POST'])
 def circle_calculator():
+    perimeter = None
+    area = None
+
     if request.method == 'POST':
         radius = request.form.get('radius', type=float)
+        calculation_type = request.form.get('calculation')
         circle = Circle(radius)
-        perimeter = circle.calc_perimeter()
-        area = circle.calc_area()
-        return render_template('circle_calculator.html', perimeter=perimeter, area=area)
+
+        if calculation_type=='perimeter':
+            perimeter = circle.calc_perimeter()
+        elif calculation_type=='area':
+            area = circle.calc_area()
+
+        return render_template('circle_calculator.html', perimeter= perimeter, area=area)
     return render_template('circle_calculator.html')

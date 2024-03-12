@@ -3,15 +3,12 @@
 {% block content %}
 	<h1>Circle Calculator</h1>
     <form method="post">
-        <input type="text" name="radius" placeholder="Enter the radius" required="required" />
-
-        <label for="calculation">Calculation</label>
-        <select id="calculation" name="calculation">
-            <option value="radius">Radius</option>
-            <option value="perimeter">Perimeter</option>
+        <input type="text" name="radius" placeholder="Enter the radius" required="required">
+        <select name="calculation">
+            <option value ="perimeter"> Perimeter </option>
+            <option value ="area"> Area </option>
         </select>
-
-        <button type="submit">Calculate Area and Perimeter of a Circle</button>
+        <button type ="submit"> Calculate </button>
     </form>
 
    <br>
