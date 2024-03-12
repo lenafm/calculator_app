@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request
-
 from helper import perform_calculation, convert_to_float
+from circle import Circle, convert_radius_to_float
 
 app = Flask(__name__)  # create the instance of the flask class
 
 
 @app.route('/')
+
+
 @app.route('/home')
 def home():
     return render_template('home.html')
@@ -38,3 +40,25 @@ def calculate():
             return render_template('calculator.html', printed_result="You cannot divide by zero")
 
     return render_template('calculator.html')
+
+
+@app.route('/circle', methods=['GET', 'POST'])
+def circle():
+    if request.method == 'POST':
+        radius = request.form['radius']
+        operation = request.form['operation']
+
+        try:
+            radius = convert_radius_to_float(radius=radius)
+        except ValueError:
+            return render_template('circle.html', printed_result="Radius must be a number")
+
+        if radius <= 0:
+            return render_template('circle.html', printed_result="Radius must be a positive number")
+
+        circle_instance = Circle(radius)
+        result = circle_instance.perform_cir_calc(operation=operation)
+        
+        return render_template('circle.html', printed_result=result)
+
+    return render_template('circle.html')
