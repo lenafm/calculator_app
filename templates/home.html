@@ -1,5 +1,25 @@
 {% extends 'layout.html' %}
 {% block content %}
     <h1>Welcome!</h1>
-    <p>Use the navigation bar, to find the calculator you need.</p>
+    <p>This page was created to help you with your calculations.</p>
+    <p>Use the navigation bar above or the buttons below to find the calculator you need.</p>
+    <br>
+    <div style="display: flex; align-items: top;">
+        <div style="flex: 1;">
+            <strong><nav>
+                <ul class="menu">
+                    <li><a href="{{ url_for('calculate') }}" style="color: #194e7a;">General Calculator</a></li>
+                </ul>
+            </nav></strong>
+            <img src="{{url_for('static', filename='calculator.jpeg')}}" style="width: 100%; max-width: 120px; height: auto;" align="middle" />
+        </div>
+        <div style="flex: 1;">
+            <strong><nav>
+                <ul class="menu">
+                    <li><a href="{{ url_for('circle') }}" style="color: #194e7a;">Circle Calculator</a></li>
+                </ul>
+            </nav></strong>
+            <img src="{{url_for('static', filename='circle_calc.jpeg')}}" style="width: 100%; max-width: 150px; height: auto;" align="middle" />
+        </div>
+    </div>
 {% endblock %}
