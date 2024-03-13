@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<h1>Circle Calculator</h1>
+    <form method="post">
+        <input type="text" name="radius" placeholder="Enter the circle's radius" required="required" />
+
+        <label for="operation">Operation</label>
+        <select id="operation" name="operation">
+            <option value="perimeter">Perimeter</option>
+            <option value="area">Area</option>
+        </select>
+
+        <label for="rounding">Round to decimals</label>
+        <input type="text" name="rounding" value="2" required="required" />
+
+        <button type="submit">Calculate</button>
+    </form>
+
+   <br>
+
+   {{ printed_result }}
+
+{% endblock %}
