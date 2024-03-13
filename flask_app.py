@@ -1,9 +1,10 @@
+## structure and run flask app
+
 from flask import Flask, render_template, request
-from test_circle import circle_calc
+from circle import Circle
 from helper import perform_calculation, convert_to_float
 
 app = Flask(__name__)  # create the instance of the flask class
-
 
 @app.route('/')
 @app.route('/home')
@@ -66,7 +67,7 @@ def circle():
         
         # run circle function
         try:
-            result = circle_calc(radius=radius, operation=operation)
+            result = Circle(radius=radius, operation=operation)
             return render_template('circle.html', printed_result=str(result))
         except Exception:
             return render_template('circle.html', printed_result=str("An error occurred."))

@@ -4,7 +4,7 @@
 from math import pi
 
 # define class for circle calculations
-class circle_class:
+class Circle:
     def __init__(self, radius):
         self.radius = radius
     

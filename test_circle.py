@@ -1,28 +1,20 @@
 ## create helper functions for circle calculations
 
 # import circle class from circle.py
-from circle import circle_class
+from circle import Circle
+from math import pi
 
-def circle_calc(radius: float, operation: str) -> float:
-    """
-    Perform a mathematical operation on two values.
+# test area function
+def test_area():
+    circle = calc_circles(radius = 1)
+    expected_res = f"This circle's area is: {round(pi * 1 ** 2, 4)}"
+    actual_res = circle.area("area")
+    assert actual_res == expected_res
 
-    Parameters:
-        radius (float): The radius.
-        operation (str): The operation to perform. Can be 'area' or 'perimeter'.
 
-    Returns:
-        float: The result of the operation.
-    """
-
-    # create object of circle class with given radius
-    my_circle = circle_class(radius)
-
-    # check operation and call the appropriate method
-    if operation == 'area':
-        result = my_circle.area()
-    else:
-        result = my_circle.perimeter()
-    
-    # return result
-    return result
+# test area function
+def test_perimeter():
+    circle = calc_circles(radius = 1)
+    expected_res = f"This circle's perimeter is: {round(result, 4)}"
+    actual_res = circle.perimeter("perimeter")
+    assert actual_res == expected_res
