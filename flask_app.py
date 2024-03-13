@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 
 from helper import perform_calculation, convert_to_float
 
+from circle import Circle
+
 app = Flask(__name__)  # create the instance of the flask class
 
 
@@ -38,3 +40,17 @@ def calculate():
             return render_template('calculator.html', printed_result="You cannot divide by zero")
 
     return render_template('calculator.html')
+
+
+@app.route('/peri')
+def circle_calculator():
+    return render_template('radius.html')
+
+@app.route('/calc_peri', methods=['POST'])
+def calculate_circle():
+    radius = request.form['radius']
+    circle = Circle(float(radius))
+    perimeter = circle.perimeter()
+    area = circle.area()
+    # You can return the results directly or pass them to another template
+    return f"Perimeter: {perimeter}, Area: {area}"
