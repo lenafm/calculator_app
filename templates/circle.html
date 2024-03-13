@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Perimeter Calculator</title>
+</head>
+<body>
+    <h1>Circle Perimeter Calculator</h1>
+    <form method="POST">
+        <label for="radius">Enter radius:</label>
+        <input type="number" id="radius" name="radius" required>
+        <button type="submit">Calculate Perimeter</button>
+    </form>
+    {% if perimeter %}
+    <p>Perimeter of the circle: {{ perimeter }}</p>
+    {% endif %}
+</body>
+</html>
