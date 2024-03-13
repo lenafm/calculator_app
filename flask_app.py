@@ -39,7 +39,7 @@ def calculate():
             rounding_int = int(float(rounding))
             assert rounding_int >= 0
         except ValueError:
-            return render_template('calculator.html', printed_result="Cannot perform operation with this input")
+            return render_template('calculator.html', printed_result="Entered values should be numbers!")
         except AssertionError:
             return render_template('calculator.html', printed_result="Rounding should not be negative!")
 
@@ -74,7 +74,7 @@ def circle():
             rounding = convert_to_float(value=rounding)
             assert radius >= 0 and rounding >= 0
         except ValueError:
-            return render_template('circle.html', printed_result="Cannot perform operation with this input")
+            return render_template('circle.html', printed_result="Entered values should be numbers!")
         except AssertionError:
             return render_template('circle.html', printed_result="Radius or rounding should not be negative!")
 
