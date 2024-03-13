@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<h1>Area and Perimeter Calculator for a Circle</h1>
+    <form method="post">
+        <input type="text" name="radius" placeholder="Enter radius of the circle" required="required" />
+
+        <label for="operation">Enter quantity to calculate:</label>
+        <select id="operation" name="operation">
+            <option value="perimeter">Perimeter</option>
+            <option value="area">Area</option>
+        </select>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+   <br>
+<p style="text-align: center;">
+
+   {{ printed_result }}
+</p>
+{% endblock %}
