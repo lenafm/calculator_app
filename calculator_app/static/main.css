@@ -1,0 +1,99 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #343a40; /* Dark neutral color for header */
+    color: #fff; /* Light text color for header */
+    padding: 10px 0;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.logo {
+    margin: 0;
+    font-size: 24px;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+h1 a {
+    color: #ffc8dd;
+}
+
+h1 a:hover {
+    color: #ffafcc;
+}
+
+.menu li a:hover {
+    color: #bde0fe; /* Light pastel color on hover */
+}
+
+/* Calculator Styles */
+h1 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 36px;
+    color: #343a40; /* Dark neutral color for heading */
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input[type="text"],
+select,
+button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button {
+    background-color: #343a40; /* Dark neutral color for button */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+button:hover {
+    background-color: #23272b; /* Slightly darker color on hover */
+}
