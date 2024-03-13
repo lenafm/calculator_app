@@ -1,6 +1,5 @@
 # create helper functions for calculations
 
-
 def perform_calculation(value1: float, value2: float, operation: str) -> float:
     """
     Perform a mathematical operation on two values.
