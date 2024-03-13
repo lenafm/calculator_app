@@ -7,10 +7,15 @@ body {
     padding: 0;
 }
 
+/* Centered Text */
+p {
+    text-align: center;
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 /* Header Styles */
