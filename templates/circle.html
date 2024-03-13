@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<h1>Circle calculator</h1>
+    <br>
+    <h3>Let's find your circle's area or perimeter!</h3>
+    <ol>
+        <li>Enter a radius</li>
+        <li>Select an option you want to calculate</li>
+        <li>Get your result!</li>
+    </ol>
+    <br>
+    <form method="post">
+        <input type="text" name="radius" placeholder="Enter the radius" required="required" />
+
+        <label for="operation">Operation</label>
+        <select id="operation" name="operation">
+            <option value="area">Area</option>
+            <option value="perimeter">Perimeter</option>
+        </select>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+   <br>
+
+   {{ printed_result }}
+
+{% endblock %}

@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #c3e0f7;
     color: #333;
     margin: 0;
     padding: 0;
@@ -15,7 +15,7 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #343a40; /* Dark neutral color for header */
+    background-color: #194e7a; /* Light blue neutral color for header */
     color: #fff; /* Light text color for header */
     padding: 10px 0;
 }
@@ -51,15 +51,15 @@ header {
 }
 
 h1 a {
-    color: #ffc8dd;
+    color: #c3e0f7;
 }
 
 h1 a:hover {
-    color: #ffafcc;
+    color: #fff;
 }
 
 .menu li a:hover {
-    color: #bde0fe; /* Light pastel color on hover */
+    color: #c3e0f7; /* Light pastel color on hover */
 }
 
 /* Calculator Styles */

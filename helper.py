@@ -1,5 +1,4 @@
-# create helper functions for calculations
-
+# create helper functions for general calculations
 
 def perform_calculation(value1: float, value2: float, operation: str) -> float:
     """
