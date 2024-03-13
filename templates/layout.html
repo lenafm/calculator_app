@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 </head>
-  <body>
+<body>
     <header>
-      <div id="navbar">
-        <h1 class="logo"><a href="{{ url_for('home') }}">Home</a></h1>
-        <strong><nav>
-          <ul class="menu">
-            <li><a href="{{ url_for('calculate') }}">General Calculator</a></li>
-          </ul>
-        </nav></strong>
-      </div>
+        <div id="navbar">
+            <h1 class="logo"><a href="{{ url_for('home') }}">Home</a></h1>
+            <strong>
+                <nav>
+                    <ul class="menu">
+                        <li><a href="{{ url_for('calculate') }}">General Calculator</a></li>
+                        <li><a href="{{ url_for('circle') }}">Circle Calculator</a></li> <!-- Add this line -->
+                    </ul>
+                </nav>
+            </strong>
+        </div>
     </header>
-      <div class="container">
-      {% block content %}
-      {% endblock %}
+    <div class="container">
+        {% block content %}
+        {% endblock %}
     </div>
-  </body>
+</body>
 </html>
