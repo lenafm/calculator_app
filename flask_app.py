@@ -42,15 +42,12 @@ def calculate():
     return render_template('calculator.html')
 
 
-@app.route('/peri')
-def circle_calculator():
-    return render_template('radius.html')
-
-@app.route('/calc_peri', methods=['POST'])
+@app.route('/circle', methods=['GET', 'POST'])
 def calculate_circle():
-    radius = request.form['radius']
-    circle = Circle(float(radius))
-    perimeter = circle.perimeter()
-    area = circle.area()
-    # You can return the results directly or pass them to another template
-    return f"Perimeter: {perimeter}, Area: {area}"
+    if request.method == 'POST':
+        radius = float(request.form['radius'])
+        circle = Circle(radius)
+        perimeter = circle.perimeter()
+        area = circle.area()
+        return render_template('radius.html', perimeter=perimeter, area=area)
+    return render_template('radius.html')

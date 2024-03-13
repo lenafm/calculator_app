@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Circle Calculator</title>
-</head>
-<body>
-    <h1>Circle Calculator</h1>
-    <form action="/calc_peri" method="post">
-        <label for="radius">Radius:</label>
-        <input type="number" id="radius" name="radius" required>
-        <input type="submit" value="Calculate">
-    </form>
-</body>
-</html>
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="calculator-form">
+        <h1>Circle Calculator</h1>
+        <form action="/circle" method="post" class="calc-form">
+            <div class="form-group">
+                <label for="radius">Radius:</label>
+                <input type="number" id="radius" name="radius" required class="form-control">
+            </div>
+            <button type="submit" class="btn-calculate">Calculate</button>
+        </form>
+        {% if perimeter and area %}
+            <div class="result">
+                <p>Perimeter: {{ perimeter }}</p>
+                <p>Area: {{ area }}</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
