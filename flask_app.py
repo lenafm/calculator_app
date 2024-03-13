@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
-
 from helper import perform_calculation, convert_to_float
+## We need this package in order to perform the circle calculations
+from circle import Circle
 
 app = Flask(__name__)  # create the instance of the flask class
 
@@ -38,3 +39,27 @@ def calculate():
             return render_template('calculator.html', printed_result="You cannot divide by zero")
 
     return render_template('calculator.html')
+
+
+### Aranxa Márquez: PS_2
+
+@app.route('/circle', methods=['GET', 'POST'])
+def circle():
+    printed_result = None  # Initialize printed_result variable
+
+    if request.method == 'POST':
+        radius = float(request.form['radius'])  # Correctly extract radius from form data
+        operation = request.form['operation']
+
+        circle = Circle(radius)  # Create a Circle instance with the given radius
+
+        if operation == 'perimeter':
+            result = circle.perimeter_calculation()
+            printed_result = f"The perimeter of the circle is: {result}"
+        elif operation == 'area':
+            result = circle.area_calculation()
+            printed_result = f"The area of the circle is: {result}"
+        else:
+            printed_result = 'Operation must be one of "area", "perimeter"'
+
+    return render_template('circle.html', printed_result=printed_result)
