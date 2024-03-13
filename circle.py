@@ -19,6 +19,9 @@ class Circle:
         if not isinstance(self.radius, (int, float)):
             return "Cannot perform operation with this input"   
         
+        if self.radius < 0:
+            return "Invalid input for radius"
+        
         if operation == 'perimeter':
             result = float(2 * pi * self.radius) 
             

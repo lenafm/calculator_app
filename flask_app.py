@@ -51,8 +51,6 @@ def calculate_circle():
         except ValueError:
             return render_template('circle_calculator.html', printed_result="Cannot perform operation with this input")
         
-        #ALSO MAKE IT ROBUST TO NEG NUMBERS
-        
         circle = Circle(radius)
         result = circle.circle_calculation(operation=operation)
         return render_template('circle_calculator.html', printed_result=str(result))

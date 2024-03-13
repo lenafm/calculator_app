@@ -4,8 +4,9 @@
 /* Global Styles */
 body {
     font-family: 'Comic Neue', cursive, Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
     background-color: #2d7ccb;
-    color: #333;
+    color: #ffffff;
     margin: 0;
     padding: 0;
     background-image: url('tie_dye.jpg'); 
