@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!-- Circle Calculator Form -->
+<h2>Circle Calculator</h2>
+<form action="{{ url_for('calculate_circle') }}" method="post">
+    <input type="text" name="radius" placeholder="Enter the radius" required="required" />
+
+    <label for="calc_method">Calculation Method</label>
+    <select id="calc_method" name="calc_method">
+        <option value="area">Area</option>
+        <option value="perimeter">Perimeter</option>
+    </select>
+
+    <button type="submit">Calculate Circle Properties</button>
+
+</form>
+
+<br>
+
+{% if result %}
+    {% if result.perimeter %}
+        <p>Perimeter: {{ result.perimeter }}</p>
+        <p>Area: {{ result.area }}</p>
+    {% else %}
+        <p>Result: {{ result }}</p>
+    {% endif %}
+{% endif %}
+
+{% if error %}
+    <p class="error">{{ error }}</p>
+{% endif %}
+
+{% endblock %}

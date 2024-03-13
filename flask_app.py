@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 
 from helper import perform_calculation, convert_to_float
 
+from circle import Circle
+
 app = Flask(__name__)  # create the instance of the flask class
 
 
@@ -38,3 +40,27 @@ def calculate():
             return render_template('calculator.html', printed_result="You cannot divide by zero")
 
     return render_template('calculator.html')
+
+
+@app.route('/calculate_circle', methods=['GET', 'POST'])
+def calculate_circle():
+    if request.method == 'POST':
+        try:
+            radius = convert_to_float(request.form.get('radius', ''))
+            circle = Circle(radius)
+            calc_method = request.form.get('calc_method')
+
+            if calc_method == 'area':
+                result = circle.calculate_area()
+                result_text = f"Area: {result}"
+            elif calc_method == 'perimeter':
+                result = circle.calculate_perimeter()
+                result_text = f"Perimeter: {result}"
+            else:
+                return render_template('circle_calculator.html', error="Invalid calculation method selected.")
+
+            return render_template('circle_calculator.html', result=result_text)
+        except ValueError as e:
+            return render_template('circle_calculator.html', error=str(e))
+    else:
+        return render_template('circle_calculator.html')
