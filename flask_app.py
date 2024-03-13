@@ -51,6 +51,7 @@ def circle():
             radius1 = convert_to_float(value=radius1)
         except ValueError:
             return render_template('circle.html', printed_circle_result="Cannot perform operation with this input, perhaps it is not a number.")
+        #Same function for converting to float we used for the calculator
 
         if(radius1 >= 0):
             Circle1 = Circle(radius=radius1)
@@ -59,5 +60,6 @@ def circle():
             return render_template('circle.html', printed_circle_result=f"The Perimiter of the circle is: {Permimeter1}. The Area is: {Area1}.")
         else:
             return render_template('circle.html', printed_circle_result="I am not allowed to calculate negative areas or perimeters.")
+        #Checking our input is negative, returning an error message if it is and the perimiter as well as the area if it is not.
 
     return render_template('circle.html')

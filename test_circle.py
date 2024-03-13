@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 
-from circle import Circle#
+from circle import Circle
 
 def test_area_works():
     testCircle = Circle(radius = 1)
