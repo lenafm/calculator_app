@@ -1,13 +1,18 @@
+import math
+import unittest
+
+
 # create helper functions for calculations
 
-def perform_calculation(value1: float, value2: float, operation: str) -> float:
+
+def circle_calculation(value1: float, operation: str) -> float:
     """
     Perform a mathematical operation on two values.
 
     Parameters:
-        value1 (float): The first value.
-        value2 (float): The second value.
-        operation (str): The operation to perform. Can be 'add', 'subtract', 'divide', or 'multiply'.
+        value1 (float): radius 
+
+        operation (str): The operation to perform. Can be 'area', 'perimeter"
 
     Returns:
         float: The result of the operation.
@@ -15,14 +20,10 @@ def perform_calculation(value1: float, value2: float, operation: str) -> float:
     Raises:
         ZeroDivisionError: If attempting to divide by zero.
     """
-    if operation == 'add':
-        result = value1 + value2
-    elif operation == 'subtract':
-        result = value1 - value2
-    elif operation == 'divide':
-        result = value1 / value2
+    if operation == 'Area':
+        result = math.pi * value1 ** 2  # πr^2
     else:
-        result = value1 * value2
+        result = 2 * math.pi * value1  # 2πr
 
     return result
 
