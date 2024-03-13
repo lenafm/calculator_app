@@ -1,15 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&family=Papyrus&display=swap');
+
+
 /* Global Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+    font-family: 'Comic Neue', cursive, Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2d7ccb;
     color: #333;
     margin: 0;
     padding: 0;
+    background-image: url('tie_dye.jpg'); 
+    background-size: cover
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-size: 4em;
+    color: #FFFFFF;
+    font-weight: bold;
     padding: 20px;
 }
 
@@ -56,7 +69,11 @@ h1 a {
 
 h1 a:hover {
     color: #ffafcc;
+    text-decoration: underline; /* re-adds underline on hover */
 }
+
+
+
 
 .menu li a:hover {
     color: #bde0fe; /* Light pastel color on hover */
@@ -67,7 +84,7 @@ h1 {
     text-align: center;
     margin-top: 0;
     font-size: 36px;
-    color: #343a40; /* Dark neutral color for heading */
+    color: #ffffff; /* Dark neutral color for heading */
 }
 
 form {
@@ -86,14 +103,19 @@ button {
 }
 
 button {
-    background-color: #343a40; /* Dark neutral color for button */
-    color: #fff;
+    background-color: #FF69B4; 
+    color: #FFFFFF; 
+    font-family: 'Comic Neue', cursive;
     border: none;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    margin: 4px 2px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+    border-radius: 12px; 
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #23272b; /* Slightly darker color on hover */
+    background-color: #FFB6C1; 
 }
