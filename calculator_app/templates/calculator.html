@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<h1>Calculator</h1>
+    <form method="post">
+        <input type="text" name="value1" placeholder="Enter the first number" required="required" />
+        <input type="text" name="value2" placeholder="Enter the second number" required="required" />
+
+        <label for="operation">Operation</label>
+        <select id="operation" name="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="divide">Divide</option>
+            <option value="multiply">Multiply</option>
+        </select>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+   <br>
+
+   {{ printed_result }}
+
+{% endblock %}
