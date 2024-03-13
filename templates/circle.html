@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+<head>
+    <title>Circle Zone</title>
+</head>
+
+<body>
+	<h1>Circle</h1>
+
+        <form action="{{ url_for('circle_calculation')}}" method="post">
+                <input type="text" name="radius" placeholder="Enter the radius" required="required" />
+                <select name="operation" required="required">
+                        <option value="perimeter">perimeter</option>
+                        <option value="area">area</option>
+                </select>
+                <button type="submit">Calculate</button>
+    </form>
+
+   <br>
+
+   {{ printed_result }}
+
+</body>
+{% endblock %}
