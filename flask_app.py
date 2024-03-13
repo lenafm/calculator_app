@@ -2,6 +2,10 @@ from flask import Flask, render_template, request
 
 from helper import perform_calculation, convert_to_float
 
+from circle import Circle
+
+from test_circle import test_circle_area, test_circle_perimeter
+
 app = Flask(__name__)  # create the instance of the flask class
 
 
@@ -38,3 +42,34 @@ def calculate():
             return render_template('calculator.html', printed_result="You cannot divide by zero")
 
     return render_template('calculator.html')
+
+@app.route('/circle', methods=['GET', 'POST'])
+def circle():
+    area = None # default
+    perimeter = None # default
+    radius = None  # default
+    printed_result = ""
+    if request.method == 'POST':
+        radius_str = request.form.get('radius')
+        if radius_str:
+            try:
+                radius = float(radius_str)
+                if radius > 0:
+                    circle_obj = Circle(radius)
+                    area = "{:.2f}".format(circle_obj.area())
+                    perimeter = "{:.2f}".format(circle_obj.perimeter())
+                else:
+                    # If radius is not greater than 0, reset it to None and set the error message
+                    radius = None
+                    printed_result = "Radius must be a positive number."
+            except ValueError:
+                # If there's a ValueError, reset radius to None and set the error message
+                radius = None
+                printed_result = "Please enter a valid number for the radius."
+    return render_template('circle.html', radius=radius, area=area, perimeter=perimeter, printed_result=printed_result)
+
+# Optional: Run app in debug Mode including the tests
+# if __name__ == '__main__':
+#     test_circle_area()
+#     test_circle_perimeter()
+#     app.run(debug=True)

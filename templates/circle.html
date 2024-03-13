@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Circle Operations</h1>
+    <div class="container">
+        <p>Input radius of circle here to find it's area and perimeter. </p>
+
+        <form action="{{ url_for('circle')}}" method="post">
+            <input type="text" name="radius" placeholder="Enter radius" required="required" />
+
+            <button type="submit">Calculate</button>
+        </form>
+
+       <br>
+
+       {% if radius %}
+            <p>For a radius of {{ radius }} the area and perimeter are the following:</p>
+            <p><strong>Area:</strong> {{ area }}</p>
+            <p><strong>Perimeter:</strong> {{ perimeter }}</p>
+        {% elif printed_result %}
+            <p>{{ printed_result }}</p>
+        {% endif %}
+
+    </div>
+
+{% endblock %}
